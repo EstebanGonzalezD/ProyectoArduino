@@ -1,0 +1,97 @@
+html,
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, Helvetica, sans-serif;
+}
+header {
+width: 100%;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+background: #454147;
+color: #ccc;
+padding-bottom: 0px;
+margin-bottom: 0px;
+}
+.logo {
+letter-spacing: 3px;
+}
+.nav {
+display: flex;
+justify-content: flex-end;
+
+width: 30%;
+}
+.navlink {
+list-style: none;
+margin: 0;
+}
+.navlink a {
+color: #ccc;
+text-decoration: none;
+font-size: 1.2em;
+}
+.burger {
+font-size: 1.2em;
+display: none;
+}
+
+li{
+    padding-left: 40px;
+}
+
+.contenedor{
+    width: 100%;
+    height: 583px;
+    background-color: #f1f1e5;
+    position: relative;
+    
+}
+
+.marcacion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #454147;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    font-size: 40px;
+    margin-top: -20px;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.informe{
+    margin: 0 auto;
+    background-color: #f1f1e5;
+    padding-bottom: 15px;
+}
+
+.input{
+    width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px ;
+    padding-bottom: 20px;
+}
+
+.contenedor-inputs {
+    padding-top: 125px;
+    padding-bottom: 125px;
+}
+
+.label {
+    margin-bottom: 20px;
+}
+
+.swal-text {
+   
+    text-align: center;
+
+}
+

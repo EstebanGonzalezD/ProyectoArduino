@@ -39,8 +39,7 @@ void loop() {
     Serial.println("---");                  // no mide nada
   }
   else {
-    Serial.print(distancia);           // envia el valor de la distancia por el puerto serial
-    Serial.println("cm");              // le coloca a la distancia los centimetros "cm"
+    Serial.println(distancia);           // envia el valor de la distancia por el puerto serial
     digitalWrite(13, 0);               // en bajo el pin 13
     digitalWrite(4, 1); 
   } 
@@ -48,7 +47,7 @@ void loop() {
    if (distancia <= 10 && distancia >= 1){
     digitalWrite(13, 1);                     // en alto el pin 13 si la distancia es menor a 10cm
     digitalWrite(4, 0); 
-    Serial.println("Alarma.......");         // envia la palabra Alarma por el puerto serial
+    //Serial.println("Alarma.......");         // envia la palabra Alarma por el puerto serial
   }
-  delay(400);                                // espera 400ms para que se logre ver la distancia en la consola
+  delay(10000);                                // espera 400ms para que se logre ver la distancia en la consola
 }
