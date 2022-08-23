@@ -20,6 +20,7 @@ socket.on("distancias", function (data) {
   if (data[0][2].distancia < 40) {
     alerta++;
   }
+  
 
   if (alerta == 3) {
     swal(
@@ -27,6 +28,9 @@ socket.on("distancias", function (data) {
       "Te has acercado mucho a la pantalla, recuerda tener una distancia moderada",
       "warning"
     );
+    let arr = [data[0][0].distancia, data[0][1].distancia, data[0][2].distancia]
+
+    socket.emit('alerta', arr);
   }
 });
 
@@ -47,17 +51,20 @@ function generarExcel() {
 }
 
 socket.on("informeExcel", function (data) {
-  convertJsonToExcel(data[0]);
+  convertJsonToExcel(data);
 });
 
 const convertJsonToExcel = (data) => {
-  const workSheet = XLSX.utils.json_to_sheet(data);
+  const workSheet = XLSX.utils.json_to_sheet(data[0]);
+  const workSheet2 =XLSX.utils.json_to_sheet(data[1]);
+
   const workBook = XLSX.utils.book_new();
 
-  XLSX.utils.book_append_sheet(workBook, workSheet, "data");
+  XLSX.utils.book_append_sheet(workBook, workSheet, "distancias");
+  XLSX.utils.book_append_sheet(workBook, workSheet2, "alertas");
   // Generate buffer
-  XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
 
+  XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
   // Binary string
   XLSX.write(workBook, { bookType: "xlsx", type: "binary" });
 

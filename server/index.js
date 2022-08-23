@@ -4,7 +4,7 @@ const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-const { postMarcaciones, getMarcaciones, informeExcel } = require("./database/marcaciones");
+const { postMarcaciones, getMarcaciones, informeExcel, postAlertas } = require("./database/marcaciones");
 let dtmFechaDesde;
 let dtmFechaHasta;
 let status = true;
@@ -67,6 +67,10 @@ io.on('connection', (socket) => {
 
   socket.on('Iniciar', (msg) => {
     status = true;
+  })
+
+  socket.on('alerta', (data) => {
+    postAlertas(data);
   })
 
   
