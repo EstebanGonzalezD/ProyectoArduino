@@ -26212,6 +26212,9 @@ socket.on("distancias", function (data) {
   
 
   if (alerta == 3) {
+
+    document.getElementById('sonidos').innerHTML = '<audio src="./sounds/SD_ALERT_18.mp3" autoplay></audio>';
+    
     swal(
       "¡Cuidado!",
       "Te has acercado mucho a la pantalla, recuerda tener una distancia moderada",
@@ -26249,8 +26252,8 @@ const convertJsonToExcel = (data) => {
 
   const workBook = XLSX.utils.book_new();
 
-  XLSX.utils.book_append_sheet(workBook, workSheet, "data");
-  XLSX.utils.book_append_sheet(workBook, workSheet2, "distancia");
+  XLSX.utils.book_append_sheet(workBook, workSheet, "distancias");
+  XLSX.utils.book_append_sheet(workBook, workSheet2, "alertas");
   // Generate buffer
 
   XLSX.write(workBook, { bookType: "xlsx", type: "buffer" });
@@ -26270,5 +26273,6 @@ function pausar() {
     socket.emit("Iniciar", '')
   }
 }
+
 
 },{"xlsx":4}]},{},[5]);

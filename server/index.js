@@ -9,8 +9,8 @@ let dtmFechaDesde;
 let dtmFechaHasta;
 let status = true;
 
-server.listen(3000, function () {
-  console.log("server listening on port", 3000);
+server.listen(3080, function () {
+  console.log("server listening on port", 3080);
 });
 
 app.use(express.static(__dirname + "/public"));
@@ -20,7 +20,7 @@ const { SerialPort } = require("serialport");
 const { ReadlineParser } = require("@serialport/parser-readline");
 
 const port = new SerialPort({
-  path: "COM6",
+  path: "COM4",
   baudRate: 9600,
   parser: new ReadlineParser("\r\n"),
 });
@@ -70,6 +70,7 @@ io.on('connection', (socket) => {
   })
 
   socket.on('alerta', (data) => {
+    
     postAlertas(data);
   })
 

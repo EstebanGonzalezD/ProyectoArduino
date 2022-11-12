@@ -23,6 +23,9 @@ socket.on("distancias", function (data) {
   
 
   if (alerta == 3) {
+
+    document.getElementById('sonidos').innerHTML = '<audio src="./sounds/SD_ALERT_18.mp3" autoplay></audio>';
+    
     swal(
       "¡Cuidado!",
       "Te has acercado mucho a la pantalla, recuerda tener una distancia moderada",
@@ -81,3 +84,4 @@ function pausar() {
     socket.emit("Iniciar", '')
   }
 }
+
